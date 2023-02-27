@@ -448,9 +448,9 @@ class StockTradingEnv(gym.Env):
 
     def _get_date(self):
         if len(self.df.tic.unique()) > 1:
-            date = self.data.date.unique()[0]
+            date = self.data.time.unique()[0]
         else:
-            date = self.data.date
+            date = self.data.time
         return date
 
     def save_asset_memory(self):
