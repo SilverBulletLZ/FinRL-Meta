@@ -312,7 +312,7 @@ class ReturnPlotter:
     def get_return(self, df, value_col_name="account_value"):
         df = copy.deepcopy(df)
         df["daily_return"] = df[value_col_name].pct_change(1)
-        df["time"] = pd.to_datetime(df["date"], format="%Y-%m-%d")
+        df["time"] = pd.to_datetime(df["time"], format="%Y-%m-%d")
         df.set_index("time", inplace=True, drop=True)
         df.index = df.index.tz_localize("UTC")
         return pd.Series(df["daily_return"], index=df.index)
