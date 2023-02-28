@@ -192,7 +192,7 @@ class ReturnPlotter:
             # 使用指定ticket作为baseline
             baseline_df = self.get_baseline(baseline_ticket)
             baseline_date_list = baseline_df.time.dt.strftime("%Y-%m-%d").tolist()
-            df_date_list = self.df_account_value.time.tolist()
+            df_date_list = self.df_account_value.date.tolist()
             df_account_value = self.df_account_value[
                 self.df_account_value.date.isin(baseline_date_list)
             ]
