@@ -217,7 +217,7 @@ class ReturnPlotter:
             60  # you should scale this variable accroding to the total trading days
         )
         time = list(range(len(ours)))
-        datetimes = self.df_account_value.time.tolist()
+        datetimes = self.df_account_value.date.tolist()
         ticks = [tick for t, tick in zip(time, datetimes) if t % days_per_tick == 0]
         plt.title("Cumulative Returns")
         plt.plot(time, ours, label="DDPG Agent", color="green")
@@ -237,7 +237,7 @@ class ReturnPlotter:
 
         # time lists
         # algorithm time list
-        df_date_list = self.df_account_value.time.tolist()
+        df_date_list = self.df_account_value.date.tolist()
 
         # 399300 time list
         csi300_df = self.get_baseline("399300")
@@ -269,7 +269,7 @@ class ReturnPlotter:
             baseline_equal_weight.append(avg_close)
 
         df_account_value = self.df_account_value[
-            self.df_account_value.time.isin(all_date)
+            self.df_account_value.date.isin(all_date)
         ]
         ours = df_account_value.account_value.tolist()
 
@@ -282,7 +282,7 @@ class ReturnPlotter:
             60  # you should scale this variable accroding to the total trading days
         )
         time = list(range(len(ours)))
-        datetimes = self.df_account_value.time.tolist()
+        datetimes = self.df_account_value.date.tolist()
         ticks = [tick for t, tick in zip(time, datetimes) if t % days_per_tick == 0]
         plt.title("Cumulative Returns")
         plt.plot(time, ours, label="DDPG Agent", color="darkorange")
